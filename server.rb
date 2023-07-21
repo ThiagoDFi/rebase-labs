@@ -1,18 +1,14 @@
 require 'sinatra'
 require 'rack/handler/puma'
 require 'csv'
+require 'json'
+require_relative 'database'
+require_relative 'consult_exams'
+
+consult_exams = ConsultExams.new
 
 get '/tests' do
-  rows = CSV.read("./data.csv", col_sep: ';')
-
-  columns = rows.shift
-
-  rows.map do |row|
-    row.each_with_object({}).with_index do |(cell, acc), idx|
-      column = columns[idx]
-      acc[column] = cell
-    end
-  end.to_json
+  consult_exams.consult
 end
 
 get '/hello' do
