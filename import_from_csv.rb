@@ -1,5 +1,6 @@
-require 'pg'
 require 'csv'
+
+require_relative 'database'
 
 conn = PG.connect(
   host: 'postgres',
@@ -14,13 +15,13 @@ rows = CSV.read("./data.csv", col_sep: ';')
 
   column_names_attr = columns.map { |column| column.gsub(" ", "_").gsub("/", "_") }.join(' VARCHAR(100), ') + ' VARCHAR(100)'
   create_table = "CREATE TABLE IF NOT EXISTS exams (#{column_names_attr})"
-  conn.exec(create_table)
+  Database.execute(create_table)
 
   rows.each do |row|
     values = row.map { |value| "'#{value.gsub("'", "''")}'" }.join(', ')
     column_names = columns.map { |column| column.gsub(" ", "_").gsub("/", "_") }.join(', ')
     insert_info = "INSERT INTO exams (#{column_names}) VALUES (#{values})"
-    conn.exec(insert_info)
+    Database.execute(insert_info)
   end
 
 conn.close
