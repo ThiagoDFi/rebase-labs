@@ -5,27 +5,19 @@ require 'json'
 require_relative 'database'
 require_relative 'consult_exams'
 
-before do
-  response.headers['Access-Control-Allow-Origin'] = '*'
-  response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS'
-  response.headers['Access-Control-Allow-Headers'] = 'accept, authorization, origin, content-type'
-end
-
-options "*" do
-  response.headers["Allow"] = "GET, POST, OPTIONS"
-  response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, Origin"
-  response.headers["Access-Control-Allow-Origin"] = "*"
-  200
-end
-
 consult_exams = ConsultExams.new
+
+get '/' do
+  File.read(File.join('index.html'))
+end
 
 get '/tests' do
   consult_exams.consult
 end
 
-get '/hello' do
-  'Hello world!'
+get '/tests/:token' do
+    result = Database.execute("SELECT * FROM exams WHERE token_resultado_exame = '#{params['token']}'").entries
+    consult_exams.layout(result)
 end
 
 Rack::Handler::Puma.run(

@@ -1,14 +1,8 @@
 require 'json'
-
 require_relative 'database'
 
 class ConsultExams
-
-  def consult
-    query = "SELECT * FROM exams"
-    result = Database.execute(query)
-    data = result.map(&:to_h)
-
+  def layout(data)
     grouped_data = data.group_by { |record| record["token_resultado_exame"] }
     output_data = grouped_data.map do |result_token, records|
       {
@@ -35,5 +29,11 @@ class ConsultExams
 
     output_data.to_json
   end
-end
 
+  def consult
+    query = "SELECT * FROM exams"
+    result = Database.execute(query)
+    data = result.map(&:to_h)
+    layout(data)
+  end
+end

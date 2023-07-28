@@ -1,6 +1,49 @@
-<head></head>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de exames</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <h1>Music genres</h1>
-  <ul></ul>
-  <script src="main.js"></script>
+  <div id="app">
+    <h1>Lista de exames</h1>
+
+    <button class="button" v-on:click="getData">Carregar dados</button>
+
+    <div>
+      <ul>
+        <li v-for="item, index in listExams">
+          <div class="card">
+            <address>
+              <br>Token: {{item.resultToken}}
+              <br>Data resultado: {{ item.resultDate }}
+              <div>
+                <br>Nome Paciente: {{ item.name }}
+                <br>email: {{ item.email }}
+                <br>Data de aniversario: {{ item.birthday }}
+                <br>CPF: {{ item.cpf }}
+              </div>
+              <div>
+                <br>Nome Doutor: {{ item.docName }}
+                <br>CRM: {{ item.crm }}
+                <br>Estado do CRM: {{ item.crm_state }}
+              </div>
+              <div v-for="test in item.tests" :key="test.type">
+                <br>Tipo do Exame: {{ test.type }}
+                <br>Limites: {{ test.limits }}
+                <br>Resultado: {{ test.result }}
+              </div>
+            </address>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="/main.js"></script>
 </body>
+</html>

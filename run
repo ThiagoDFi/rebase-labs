@@ -6,7 +6,7 @@ docker run \
   --network rebase-lab \
   -e POSTGRES_PASSWORD=password \
   -p 5432:5432 \
-  -v $(pwd)/pgdata:/var/lib/postgresql/data \
+  -v $(pwd)/postgresdata:/var/lib/postgresql/data \
   -d \
   postgres
 

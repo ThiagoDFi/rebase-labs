@@ -1,0 +1,32 @@
+body {
+  background-color: #f8f9df;
+  text-align: center;
+}
+
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+
+.card {
+  background-color: #FFF;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 25px;
+
+}
+
+
+.button {
+  background-color: #3e57db;
+  color: #FFF;
+  font-size: 16px;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  margin-left: 10px;
+}
