@@ -59,7 +59,8 @@ GET /
 ```
 
 Response:
-Tela da aplicação:
+   *Tela da aplicação*
+![Index](https://raw.githubusercontent.com/ThiagoDFi/rebase-labs/main/support/rebase-labs.png)
 
 Request:
 ```bash
