@@ -15,6 +15,10 @@
 
     <!-- <button class="button" v-on:click="getData">Carregar dados</button> -->
 
+    <div class="msg" v-if="filteredExams.length <= 0">
+      Nenhum Exame encontrado!
+    </div>
+
     <div>
       <ul>
         <li v-for="item in filteredExams" :key="item.resultToken">
