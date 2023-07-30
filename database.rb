@@ -6,7 +6,7 @@ module Database
     PG.connect(
       host: 'postgres',
       port: 5432,
-      dbname: 'medic',
+      dbname: 'postgres',
       user: 'postgres',
       password: 'password'
     )

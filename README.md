@@ -245,9 +245,9 @@ Response:
 
 ### Tarefas em aberto
 
-Importação do arquivo CSV
+:memo: Importação do arquivo CSV
 
-Utilização do Redis e Sidkick para gerenciamento de processamento
+:memo: Utilização do Redis e Sidkick para gerenciamento de processamento
 
-Validação com testes
+:memo: Validação com testes
 
