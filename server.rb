@@ -20,6 +20,7 @@ get '/tests/:token' do
     consult_exams.layout(result)
 end
 
+
 Rack::Handler::Puma.run(
   Sinatra::Application,
   Port: 3000,
