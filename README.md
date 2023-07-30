@@ -16,7 +16,7 @@ Uma app web para listagem de exames médicos.
 
 ### Descrição do projeto
 
-O projeto é uma aplicação ruby e sinatra que recebe dados de exames via arquivo CSV e exibe em tela os resultados, é possivel realizar uma busca dos resultados de um paciente em em espesifico atraves do TOKEN do exame do paciente. O projeto possui um banco de dados utilizando o PostgresSQL. Toda a interação em tela foi realizada com HTML, CSS e Vue.js, toda aplicação e inicializada atraves de containers com o Docker
+O Rebase Labs é uma aplicação Ruby e Sinatra que recebe dados de exames via arquivo CSV e exibe os resultados na tela. É possível realizar uma busca dos resultados de um paciente específico através do TOKEN do exame. O projeto utiliza um banco de dados PostgresSQL para armazenar as informações. Toda a interação em tela foi implementada com HTML, CSS e Vue.js, e a aplicação é inicializada através de containers com o Docker.
 
 ---
 
@@ -27,7 +27,7 @@ Faça o clone do projeto utilizando o comando abaixo:
 ```
 $ git clone git@github.com:ThiagoDFi/rebase-labs.git
 ```
-Entre no diretorio:
+Entre no diretório:
 
 ```
 $ cd rebase-labs
