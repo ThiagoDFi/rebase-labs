@@ -11,11 +11,13 @@
   <div id="app">
     <h1>Lista de exames</h1>
 
-    <button class="button" v-on:click="getData">Carregar dados</button>
+    <input class="input-search" type="text" v-model="searchQuery" placeholder="Digite um token">
+
+    <!-- <button class="button" v-on:click="getData">Carregar dados</button> -->
 
     <div>
       <ul>
-        <li v-for="item, index in listExams">
+        <li v-for="item in filteredExams" :key="item.resultToken">
           <div class="card">
             <address>
               <br>Token: {{item.resultToken}}
